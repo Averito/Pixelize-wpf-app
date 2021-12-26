@@ -1,0 +1,16 @@
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\bin\Debug\FirstAPP.exe.config
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\bin\Debug\FirstAPP.exe
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\bin\Debug\FirstAPP.pdb
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\obj\Debug\FirstAPP.csproj.AssemblyReference.cache
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\obj\Debug\FirstAPP.csproj.SuggestedBindingRedirects.cache
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\obj\Debug\MainWindow.g.cs
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\obj\Debug\App.g.cs
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\obj\Debug\FirstAPP_MarkupCompile.cache
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\obj\Debug\FirstAPP_MarkupCompile.lref
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\obj\Debug\MainWindow.baml
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\obj\Debug\FirstAPP.g.resources
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\obj\Debug\FirstAPP.Properties.Resources.resources
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\obj\Debug\FirstAPP.csproj.GenerateResource.cache
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\obj\Debug\FirstAPP.csproj.CoreCompileInputs.cache
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\obj\Debug\FirstAPP.exe
+D:\MyFolder\Web\Tests\С#\FirstAPP\FirstAPP\obj\Debug\FirstAPP.pdb

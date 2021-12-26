@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Drawing;
 using System.IO;
-using System.Windows;
 
 
 namespace FirstAPP
@@ -31,8 +29,6 @@ namespace FirstAPP
 				{
 					remainderPixelizeHeight = image.Height - y;
 				}
-
-				if (x >= image.Width) MessageBox.Show("Попався");
 
 				var currentColor = image.GetPixel(Clamp(x, image.Width), Clamp(y, image.Height));
 
@@ -65,8 +61,7 @@ namespace FirstAPP
 		private static int Clamp(int first, int second)
 		{
 			if (first.CompareTo(second) >= 0) return second - 1;
-			if (first.CompareTo(second) < 0) return first;
-			return 0;
+			return first;
 		}
 	}
 }

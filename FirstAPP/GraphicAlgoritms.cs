@@ -57,6 +57,19 @@ namespace FirstAPP
 				return bitmapimage;
 			}
 		}
+		
+		public static Bitmap BitmapImageToBitmap(BitmapImage bitmapImage)
+		{
+			using(MemoryStream outStream = new MemoryStream())
+			{
+				BitmapEncoder enc = new BmpBitmapEncoder();
+				enc.Frames.Add(BitmapFrame.Create(bitmapImage));
+				enc.Save(outStream);
+				Bitmap bitmap = new Bitmap(outStream);
+
+				return new Bitmap(bitmap);
+			}
+		}
 
 		private static int Clamp(int first, int second)
 		{

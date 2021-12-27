@@ -10,7 +10,7 @@ namespace FirstAPP
 {
 	public partial class MainWindow
 	{
-		private string OldPicture { get; set; }
+		private string CurrentImage { get; set; }
 		
 		public MainWindow()
 		{
@@ -43,7 +43,7 @@ namespace FirstAPP
 				
 				string filename = dlg.FileName;
 				Image1.Source = normalizeImg;
-				OldPicture = dlg.FileName;
+				CurrentImage = dlg.FileName;
 			}
 			catch (ArgumentOutOfRangeException err)
 			{
@@ -72,9 +72,13 @@ namespace FirstAPP
 					return;
 				}
 
-				if (Image1.Source.ToString() == string.Empty) throw new ArgumentNullException("Картинка не выбрана");
+				if (CurrentImage == string.Empty)
+				{
+					MessageBox.Show("Сохранять нечего");
+					return;
+				}
 
-				Bitmap beforeNewPixelize = new Bitmap(OldPicture);
+				Bitmap beforeNewPixelize = new Bitmap(CurrentImage);
 				Bitmap afterNewPixelize = GraphicAlgoritms.Pixelize(beforeNewPixelize, pixelizeDegreeInt);
 				BitmapImage normilizeNewPixelizePicture = GraphicAlgoritms.BitmapToImageSource(afterNewPixelize);
 
@@ -99,7 +103,11 @@ namespace FirstAPP
 		{
 			try
 			{
-				if (Image1.Source.ToString() == string.Empty) throw new ArgumentNullException("Сохранять нечего");
+				if (CurrentImage == string.Empty)
+				{
+					MessageBox.Show("Сохранять нечего");
+					return;
+				}
 
 				SaveFileDialog dlgMenu = new SaveFileDialog();
 

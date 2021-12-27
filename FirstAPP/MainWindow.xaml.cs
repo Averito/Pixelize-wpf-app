@@ -3,12 +3,15 @@ using System.Windows;
 using System.Drawing;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Microsoft.Win32;
 using Color = System.Drawing.Color;
 
 namespace FirstAPP
 {
 	public partial class MainWindow
 	{
+		private string OldPicture { get; set; }
+		
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -27,7 +30,7 @@ namespace FirstAPP
 			
 				Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 			
-				dlg.DefaultExt = ".png";
+				dlg.DefaultExt = ".jpg";
 				dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
 
 				Nullable<bool> result = dlg.ShowDialog();
@@ -39,7 +42,8 @@ namespace FirstAPP
 				BitmapImage normalizeImg = GraphicAlgoritms.BitmapToImageSource(afterImg);
 				
 				string filename = dlg.FileName;
-				image1.Source = normalizeImg;
+				Image1.Source = normalizeImg;
+				OldPicture = dlg.FileName;
 			}
 			catch (ArgumentOutOfRangeException err)
 			{
@@ -68,15 +72,13 @@ namespace FirstAPP
 					return;
 				}
 
-				if (image1.Source.ToString() == string.Empty) throw new ArgumentNullException("Картинка не выбрана");
+				if (Image1.Source.ToString() == string.Empty) throw new ArgumentNullException("Картинка не выбрана");
 
-				BitmapImage bitmapImage = image1.Source as BitmapImage;
-
-				Bitmap beforeNewPixelize = GraphicAlgoritms.BitmapImageToBitmap(bitmapImage);
+				Bitmap beforeNewPixelize = new Bitmap(OldPicture);
 				Bitmap afterNewPixelize = GraphicAlgoritms.Pixelize(beforeNewPixelize, pixelizeDegreeInt);
 				BitmapImage normilizeNewPixelizePicture = GraphicAlgoritms.BitmapToImageSource(afterNewPixelize);
 
-				image1.Source = normilizeNewPixelizePicture;
+				Image1.Source = normilizeNewPixelizePicture;
 			}
 			catch (Exception err)
 			{
@@ -92,6 +94,44 @@ namespace FirstAPP
 		{
 			Button2.Background = new SolidColorBrush(Colors.Crimson);
 			Button2.Foreground = new SolidColorBrush(Colors.White);
+		}
+		private void Button3_Click(object sender, RoutedEventArgs e)
+		{
+			try
+			{
+				if (Image1.Source.ToString() == string.Empty) throw new ArgumentNullException("Сохранять нечего");
+
+				SaveFileDialog dlgMenu = new SaveFileDialog();
+
+				string fileName = "";
+				for (var i = 0; i < new Random().Next(50); i++) fileName += new Random().Next(10);
+				dlgMenu.FileName = fileName;
+				dlgMenu.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+
+
+				Nullable<bool> resultDlgMenu = dlgMenu.ShowDialog();
+				if (resultDlgMenu == false) return;
+				
+				BitmapImage bitmapImage = Image1.Source as BitmapImage;
+				
+				Bitmap photoForSave = GraphicAlgoritms.BitmapImageToBitmap(bitmapImage);
+				photoForSave.Save(dlgMenu.FileName);
+				MessageBox.Show("Успешно сохранено!");
+			}
+			catch (Exception err)
+			{
+				MessageBox.Show(err.Message);
+			}
+		}
+		private void Button3_MouseEnter(object sender, RoutedEventArgs e)
+		{
+			Button3.Background = new SolidColorBrush(Colors.Transparent);
+			Button3.Foreground = new SolidColorBrush(Colors.Crimson);
+		}
+		private void Button3_MouseLeave(object sender, RoutedEventArgs e)
+		{
+			Button3.Background = new SolidColorBrush(Colors.Crimson);
+			Button3.Foreground = new SolidColorBrush(Colors.White);
 		}
 	}
 }

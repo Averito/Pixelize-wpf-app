@@ -12,16 +12,18 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Button Name="Button1" Background="Crimson" BorderBrush="Crimson" Foreground="White" Padding="20, 5"
-                    Width="160" Margin="0, 10, 0, 0" Click="Button1_Click" Grid.Column="0" Cursor="Hand"
+                    Width="160" Margin="0, 10, 0, 0" Click="Button1_Click" Grid.Column="1" Cursor="Hand"
                     MouseEnter="Button1_MouseEnter" MouseLeave="Button1_MouseLeave">Выбрать картинку</Button>
             <Button Name="Button2" Background="Crimson" BorderBrush="Crimson" Foreground="White" Padding="20, 5"
-                    Width="160" Margin="0, 10, 0, 0" Click="Button2_Click" Grid.Column="1" Cursor="Hand"
+                    Width="160" Margin="0, 10, 0, 0" Click="Button2_Click" Grid.Column="2" Cursor="Hand"
                     MouseEnter="Button2_MouseEnter" MouseLeave="Button2_MouseLeave">Повтор</Button>
+            <Button Name="Button3" Background="Crimson" BorderBrush="Crimson" Foreground="White" Padding="20, 5"
+                    Width="160" Margin="0, 10, 0, 0" Click="Button3_Click" Grid.Column="0" Cursor="Hand"
+                    MouseEnter="Button3_MouseEnter" MouseLeave="Button3_MouseLeave">Сохранить</Button>
         </Grid>
-        <ScrollViewer MinHeight="600" MaxHeight="1080">
-            <Image Name="image1" />
-        </ScrollViewer>
+        <Image Name="Image1" MinHeight="600" MaxHeight="1080" />
     </StackPanel>
 </Window>

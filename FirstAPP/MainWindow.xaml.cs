@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Drawing;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
@@ -11,7 +12,7 @@ namespace FirstAPP
 	public partial class MainWindow
 	{
 		private string CurrentImage { get; set; }
-		
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -42,23 +43,13 @@ namespace FirstAPP
 				BitmapImage normalizeImg = GraphicAlgoritms.BitmapToImageSource(afterImg);
 				
 				string filename = dlg.FileName;
-				Image1.Source = normalizeImg;
 				CurrentImage = dlg.FileName;
+				Image1.Source = normalizeImg;
 			}
 			catch (ArgumentOutOfRangeException err)
 			{
 				MessageBox.Show(err.Message);
 			}
-		}
-		private void Button1_MouseEnter(object sender, RoutedEventArgs e)
-		{
-			Button1.Background = new SolidColorBrush(Colors.Transparent);
-			Button1.Foreground = new SolidColorBrush(Colors.Crimson);
-		}
-		private void Button1_MouseLeave(object sender, RoutedEventArgs e)
-		{
-			Button1.Background = new SolidColorBrush(Colors.Crimson);
-			Button1.Foreground = new SolidColorBrush(Colors.White);
 		}
 		private void Button2_Click(object sender, RoutedEventArgs e)
 		{
@@ -88,16 +79,6 @@ namespace FirstAPP
 			{
 				MessageBox.Show(err.Message);
 			}
-		}
-		private void Button2_MouseEnter(object sender, RoutedEventArgs e)
-		{
-			Button2.Background = new SolidColorBrush(Colors.Transparent);
-			Button2.Foreground = new SolidColorBrush(Colors.Crimson);
-		}
-		private void Button2_MouseLeave(object sender, RoutedEventArgs e)
-		{
-			Button2.Background = new SolidColorBrush(Colors.Crimson);
-			Button2.Foreground = new SolidColorBrush(Colors.White);
 		}
 		private void Button3_Click(object sender, RoutedEventArgs e)
 		{
@@ -131,15 +112,15 @@ namespace FirstAPP
 				MessageBox.Show(err.Message);
 			}
 		}
-		private void Button3_MouseEnter(object sender, RoutedEventArgs e)
+		private void Button_MouseEnter(object sender, RoutedEventArgs e)
 		{
-			Button3.Background = new SolidColorBrush(Colors.Transparent);
-			Button3.Foreground = new SolidColorBrush(Colors.Crimson);
+			(sender as Button).Background = new SolidColorBrush(Colors.Transparent);
+			(sender as Button).Foreground = new SolidColorBrush(Colors.Crimson);
 		}
-		private void Button3_MouseLeave(object sender, RoutedEventArgs e)
+		private void Button_MouseLeave(object sender, RoutedEventArgs e)
 		{
-			Button3.Background = new SolidColorBrush(Colors.Crimson);
-			Button3.Foreground = new SolidColorBrush(Colors.White);
+			(sender as Button).Background = new SolidColorBrush(Colors.Crimson);
+			(sender as Button).Foreground = new SolidColorBrush(Colors.White);
 		}
 	}
 }

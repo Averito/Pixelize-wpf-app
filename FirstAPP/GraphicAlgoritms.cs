@@ -11,8 +11,9 @@ namespace FirstAPP
 		public static Bitmap Pixelize(Bitmap image, int pixelDegree)
 		{
 			if (pixelDegree < 1) throw new ArgumentOutOfRangeException("Слишком маленькое число, требуется не менее 1.");
+			if (pixelDegree > 100) throw new ArgumentOutOfRangeException("Слишком большое число, требуется не больше 100.");
 			if (pixelDegree == 1) return image;
-			
+
 			int pixelizeStep = pixelDegree;
 
 			for (int x = 0; x < image.Width; x += pixelizeStep)
